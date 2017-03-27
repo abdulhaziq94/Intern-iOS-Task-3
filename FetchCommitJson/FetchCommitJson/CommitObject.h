@@ -15,6 +15,7 @@
 @property (nonatomic,strong) NSString *Email;
 @property (nonatomic,strong) NSString *Date;
 
+
 //-(instancetype) CommitMessage: (NSString *)comitterMessage Name: (NSString *)committerName Email: (NSString *)committerEmail Date: (NSString *)committerDate;
 
 @end

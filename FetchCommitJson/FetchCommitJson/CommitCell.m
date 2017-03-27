@@ -15,6 +15,7 @@
 @synthesize EmailLabel;
 @synthesize DateLabel;
 
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code

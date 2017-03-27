@@ -68,7 +68,8 @@
     cell.NameLabel.text = committer.Name;
     cell.EmailLabel.text = committer.Email;
     cell.DateLabel.text = committer.Date;
-    
+ 
+
     return cell;
 }
 
