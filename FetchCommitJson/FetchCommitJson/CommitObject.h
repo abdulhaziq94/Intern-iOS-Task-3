@@ -14,7 +14,7 @@
 @property (nonatomic,strong) NSString *Name;
 @property (nonatomic,strong) NSString *Email;
 @property (nonatomic,strong) NSString *Date;
-
+@property (nonatomic,strong) NSString *CommitCount;
 
 //-(instancetype) CommitMessage: (NSString *)comitterMessage Name: (NSString *)committerName Email: (NSString *)committerEmail Date: (NSString *)committerDate;
 

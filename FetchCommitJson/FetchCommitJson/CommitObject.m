@@ -14,6 +14,6 @@
 @synthesize Name;
 @synthesize Email;
 @synthesize Date;
-
+@synthesize CommitCount;
 
 @end

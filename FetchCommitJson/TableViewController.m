@@ -26,8 +26,15 @@
     NSURL *commitURL = [NSURL URLWithString:JSON_URL];
     NSData *jsonData = [NSData dataWithContentsOfURL:commitURL];
     NSError *error = nil;
+    id SpringBootJson = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
     
-    id CommitJson = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+    SpringBoot *SBOject = [[SpringBoot alloc] init];
+    SBOject.commit_url = [SpringBootJson objectForKey:@"commits_url"];
+    NSString *new_string = [SBOject.commit_url stringByReplacingOccurrencesOfString:@"{/sha}" withString:@""];
+    NSData *new_data = [NSData dataWithContentsOfURL:[NSURL URLWithString:new_string]];
+    id CommitJson = [NSJSONSerialization JSONObjectWithData:new_data options:kNilOptions error:&error];
+    
+
     
     for (NSDictionary *CommitDictionary in CommitJson) {
         CommitObject *committer = [[CommitObject alloc] init];
@@ -63,12 +70,20 @@
     static NSString *CellIdentifier = @"cell";
     CommitCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    
+    NSString *newString = [NSString stringWithFormat:@"Commit count : %lu", (unsigned long)[self.objectHolderArray count]];
+    
     CommitObject *committer = [self.objectHolderArray objectAtIndex:indexPath.row];
     cell.CommitMessageTV.text = committer.CommitMessage;
     cell.NameLabel.text = committer.Name;
     cell.EmailLabel.text = committer.Email;
     cell.DateLabel.text = committer.Date;
- 
+    
+    committer.CommitCount = newString;
+    cell.testLabel.text = committer.CommitCount;
+    
+    
+
 
     return cell;
 }

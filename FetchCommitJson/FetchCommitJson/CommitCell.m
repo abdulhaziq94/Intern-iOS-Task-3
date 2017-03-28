@@ -14,7 +14,7 @@
 @synthesize NameLabel;
 @synthesize EmailLabel;
 @synthesize DateLabel;
-
+@synthesize testLabel;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
